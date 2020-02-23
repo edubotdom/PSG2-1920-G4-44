@@ -5,13 +5,13 @@
 <%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
 
 <petclinic:layout pageName="vets">
-    <h2>Veterinarians</h2>
+    <h2><fmt:message key="veterinariansMessage"/></h2>
 
     <table id="vetsTable" class="table table-striped">
         <thead>
         <tr>
-            <th>Name</th>
-            <th>Specialties</th>
+            <th><fmt:message key="nameMessage"/></th>
+            <th><fmt:message key="specialitiesMessage"/></th>
         </tr>
         </thead>
         <tbody>
