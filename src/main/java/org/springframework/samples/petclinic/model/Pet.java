@@ -92,7 +92,7 @@ public class Pet extends NamedEntity {
 		return this.visits;
 	}
 
-	protected void setVisitsInternal(Set<Visit> visits) {
+	public void setVisitsInternal(Set<Visit> visits) {
 		this.visits = visits;
 	}
 	

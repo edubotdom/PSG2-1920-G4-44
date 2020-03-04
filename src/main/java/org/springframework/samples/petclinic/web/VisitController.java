@@ -16,7 +16,11 @@
 package org.springframework.samples.petclinic.web;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
@@ -32,7 +36,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
-import antlr.collections.List;
 
 /**
  * @author Juergen Hoeller
@@ -103,6 +106,10 @@ public class VisitController {
     		owner.deletePet(pet);
     		pet.removeVisit(visit);
     		owner.addPet(pet);
+    		Set<Visit> visits= new HashSet<Visit>(pet.getVisits().stream().filter(v->!(v.getDescription()==null)).filter(v->!v.equals(visit)).collect(Collectors.toSet()));
+    		pet.setVisitsInternal(visits);
+    		
+    		this.clinicService.savePet(pet);
             this.clinicService.deleteVisit(visit);
             return "redirect:/owners/{ownerId}";
     }
