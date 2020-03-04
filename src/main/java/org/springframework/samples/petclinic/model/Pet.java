@@ -95,10 +95,6 @@ public class Pet extends NamedEntity {
 	protected void setVisitsInternal(Set<Visit> visits) {
 		this.visits = visits;
 	}
-
-	void setVisits(Set<Visit> visits) {
-		this.visits = visits;
-	}
 	
 	public List<Visit> getVisits() {
 		List<Visit> sortedVisits = new ArrayList<>(getVisitsInternal());
