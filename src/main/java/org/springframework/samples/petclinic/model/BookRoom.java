@@ -4,7 +4,6 @@ package org.springframework.samples.petclinic.model;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -19,11 +18,9 @@ public class BookRoom extends NamedEntity {
 	@DateTimeFormat(pattern = "yyyy/MM/dd")
 	private LocalDate	end;
 
-	@ManyToOne
-	private Pet			mascota;
+	private String		mascota;
 
-	@ManyToOne
-	private Owner		propietario;
+	private String		propietario;
 
 
 	public LocalDate getStart() {
@@ -42,19 +39,19 @@ public class BookRoom extends NamedEntity {
 		this.end = end;
 	}
 
-	public Pet getMascota() {
+	public String getMascota() {
 		return this.mascota;
 	}
 
-	public void setMascota(final Pet mascota) {
+	public void setMascota(final String mascota) {
 		this.mascota = mascota;
 	}
 
-	public Owner getPropietario() {
+	public String getPropietario() {
 		return this.propietario;
 	}
 
-	public void setPropietario(final Owner propietario) {
+	public void setPropietario(final String propietario) {
 		this.propietario = propietario;
 	}
 
