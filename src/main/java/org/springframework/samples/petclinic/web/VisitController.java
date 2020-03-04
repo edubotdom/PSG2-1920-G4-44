@@ -15,18 +15,24 @@
  */
 package org.springframework.samples.petclinic.web;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.samples.petclinic.model.Owner;
 import org.springframework.samples.petclinic.model.Pet;
+import org.springframework.samples.petclinic.model.Vet;
 import org.springframework.samples.petclinic.model.Visit;
 import org.springframework.samples.petclinic.service.ClinicService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
+
+import antlr.collections.List;
 
 /**
  * @author Juergen Hoeller
@@ -89,4 +95,15 @@ public class VisitController {
 		return "visitList";
 	}
 
+    @RequestMapping(value = "/owners/{ownerId}/pets/{petId}/visits/{visitId}/delete", method = RequestMethod.GET)
+    public String delete(@PathVariable("ownerId") int ownerId, @PathVariable("petId") int petId, @PathVariable("visitId") int visitId, Model model) {
+    		Owner owner = this.clinicService.findOwnerById(ownerId);
+    		Visit visit = this.clinicService.findVisitById(visitId);
+    		Pet pet = this.clinicService.findPetById(petId);
+    		owner.deletePet(pet);
+    		pet.removeVisit(visit);
+    		owner.addPet(pet);
+            this.clinicService.deleteVisit(visit);
+            return "redirect:/owners/{ownerId}";
+    }
 }

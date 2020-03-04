@@ -135,5 +135,12 @@ public class OwnerController {
 		mav.addObject(this.clinicService.findOwnerById(ownerId));
 		return mav;
 	}
+	
+    @RequestMapping(value = "/owners/{ownerId}/delete", method = RequestMethod.GET)
+    public String delete(@PathVariable("ownerId") int ownerId, Model model) {
+    		Owner owner = this.clinicService.findOwnerById(ownerId);
+            this.clinicService.deleteOwner(owner);
+            return "redirect:/owners";
+    }
 
 }
