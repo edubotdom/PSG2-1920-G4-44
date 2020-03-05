@@ -37,14 +37,14 @@ public class BookRoomController {
 	}
 
 	@PostMapping(value = "/save")
-	public String processCreationForm(@Valid final BookRoom bookRoom, final BindingResult result, final ModelMap modelMap) {
+	public String processCreationForm(@Valid final BookRoom bookroom, final BindingResult result, final ModelMap modelMap) {
 		if (result.hasErrors()) {
-			modelMap.addAttribute("bookroom,", bookRoom);
+			modelMap.addAttribute("bookroom,", bookroom);
 			return BookRoomController.CREATE_BOOKROOM_FORM;
 		} else {
-			this.service.saveBookRoom(bookRoom);
+			this.service.saveBookRoom(bookroom);
 			modelMap.addAttribute("message", "Event sucesfully added!");
-			return "redirect:/bookroom/" + bookRoom.getId();
+			return this.listBookRoom(modelMap);
 		}
 
 	}

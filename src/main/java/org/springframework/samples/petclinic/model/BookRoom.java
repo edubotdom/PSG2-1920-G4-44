@@ -20,8 +20,6 @@ public class BookRoom extends NamedEntity {
 
 	private String		mascota;
 
-	private String		propietario;
-
 
 	public LocalDate getStart() {
 		return this.start;
@@ -45,14 +43,6 @@ public class BookRoom extends NamedEntity {
 
 	public void setMascota(final String mascota) {
 		this.mascota = mascota;
-	}
-
-	public String getPropietario() {
-		return this.propietario;
-	}
-
-	public void setPropietario(final String propietario) {
-		this.propietario = propietario;
 	}
 
 }

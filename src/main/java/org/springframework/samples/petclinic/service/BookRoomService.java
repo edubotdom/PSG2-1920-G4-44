@@ -19,8 +19,8 @@ public class BookRoomService {
 
 
 	@Transactional
-	public void saveBookRoom(final BookRoom bookRoom) throws DataAccessException {
-		this.repository.save(bookRoom);
+	public void saveBookRoom(final BookRoom bookroom) {
+		this.repository.save(bookroom);
 	}
 
 	public Optional<BookRoom> findBookRoomById(final int id) throws DataAccessException {
