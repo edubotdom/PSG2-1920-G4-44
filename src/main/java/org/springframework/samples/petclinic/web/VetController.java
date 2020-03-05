@@ -16,13 +16,26 @@
 package org.springframework.samples.petclinic.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.samples.petclinic.model.Owner;
+import org.springframework.samples.petclinic.model.Pet;
+import org.springframework.samples.petclinic.model.Specialty;
+import org.springframework.samples.petclinic.model.Vet;
 import org.springframework.samples.petclinic.model.Vets;
 import org.springframework.samples.petclinic.service.ClinicService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Collection;
 import java.util.Map;
+
+import javax.validation.Valid;
 
 /**
  * @author Juergen Hoeller
@@ -60,5 +73,54 @@ public class VetController {
 		vets.getVetList().addAll(this.clinicService.findVets());
 		return vets;
 	}
+	
+	@GetMapping(value = "/vets/new")
+	public String createVet(Map<String, Object> model) {
+		Vet vet = new Vet();
+		model.put("vet", vet);
+		return "vets/createVetForm";
+	}
 
+	@PostMapping(value = "/vets/save")
+	public String createVet(@Valid Vet vet, BindingResult result,Map<String, Object> model) {
+		if (result.hasErrors()) {
+			model.put("vet", vet);
+			return "vets/createVetForm";
+		}
+		else {
+			this.clinicService.saveVet(vet);
+			return "redirect:/vets/";
+		}
+	}
+
+	@GetMapping("/vets/{vetId}")
+	public ModelAndView showVet(@PathVariable("vetId") int vetId) {
+		ModelAndView mav = new ModelAndView("vets/vetDetails");
+		mav.addObject(this.clinicService.findVetById(vetId));
+		return mav;
+	}
+	
+	@GetMapping(value = "/vets/{vetId}/edit")
+	public String editVet(@PathVariable("vetId") int vetId, ModelMap model) {
+		Vet vet = this.clinicService.findVetById(vetId);
+		model.put("vet", vet);
+		return "vets/updateVetForm";
+	}
+
+	@PostMapping(value = "/vets/{vetId}/save")
+	public String editVet(@Valid Vet vet, BindingResult result, ModelMap model) {
+		if (result.hasErrors()) {
+			model.put("vet", vet);
+			return "vets/updateVetForm";
+		}
+		else {
+			this.clinicService.saveVet(vet);
+			return "redirect:/vets/";
+		}
+	}
+	
+	@ModelAttribute("specialties")
+	public Collection<Specialty> populateSpecialties(){
+		return this.clinicService.findSpecialties();
+	}
 }
