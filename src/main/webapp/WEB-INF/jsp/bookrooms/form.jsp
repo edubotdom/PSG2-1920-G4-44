@@ -14,8 +14,8 @@
         <div class="form-group has-feedback">
             <petclinic:inputField label="Start of the book" name="start"/>
             <petclinic:inputField label="End of the book" name="end"/>
-            <petclinic:inputField label="Pet" name="address"/>
-            <petclinic:inputField label="Owner" name="city"/>
+            <petclinic:inputField label="Pet" name="mascota"/>
+            <petclinic:inputField label="Owner" name="propietario"/>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">

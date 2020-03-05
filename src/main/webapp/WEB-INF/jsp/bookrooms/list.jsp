@@ -18,7 +18,7 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${selections}" var="owner">
+        <c:forEach items="${selections}" var="bookroom">
             <tr>
                 <!-- <td>
                     <spring:url value="/bookroom/{bookroomId}" var="bookroomUrl">
@@ -28,10 +28,10 @@
                 </td>
                  -->
                 <td>
-                    <c:out value="${bookroom.owner}"/>
+                    <c:out value="${bookroom.propietario}"/>
                 </td>
                 <td>
-                    <c:out value="${bookroom.pet}"/>
+                    <c:out value="${bookroom.mascota}"/>
                 </td>
                 <td>
                     <c:out value="${bookroom.start}"/>
