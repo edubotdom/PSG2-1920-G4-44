@@ -1,8 +1,6 @@
 
 package org.springframework.samples.petclinic.service;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.dao.DataAccessException;
@@ -23,8 +21,8 @@ public class BookRoomService {
 		this.repository.save(bookroom);
 	}
 
-	public Optional<BookRoom> findBookRoomById(final int id) throws DataAccessException {
-		return this.repository.findById(id);
+	public BookRoom findBookRoomById(final int id) throws DataAccessException {
+		return this.repository.findBookRoomById(id);
 	}
 
 	@Transactional(readOnly = true)

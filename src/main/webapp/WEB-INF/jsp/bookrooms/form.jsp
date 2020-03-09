@@ -17,10 +17,8 @@
     <jsp:body>
         <h2>Create book for a room</h2>
         <form:form modelAttribute="bookroom"
-                   class="form-horizontal" action="/bookroom/save">
+                   class="form-horizontal" action="/bookroom/save/${bookroom.owner.id}/${bookroom.pet.id}">
             <div class="form-group has-feedback">
-				<petclinic:inputField label="Name" name="name"/>
-                <petclinic:inputField label="Pet" name="mascota"/>
                 <petclinic:inputField label="Start Date of the book of the room" name="start"/>
                 <petclinic:inputField label="End Date of the book of the room" name="end"/>
             </div>

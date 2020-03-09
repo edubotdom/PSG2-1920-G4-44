@@ -6,7 +6,7 @@
 <%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
 
 <petclinic:layout pageName="bookroom">
-    <h2><fmt:message key="ownersMessage"/></h2>
+    <h2>List of book of rooms</h2>
 
     <table id="bookroomTable" class="table table-striped">
         <thead>
@@ -15,29 +15,27 @@
             <th style="width: 150px;">Pet</th>
             <th style="width: 120px;">Start</th>
             <th style="width: 120px">End</th>
+            <th style="width: 120px"></th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${selections}" var="bookroom">
+        <c:forEach items="${bookrooms}" var="bookroom">
             <tr>
-                <!-- <td>
-                    <spring:url value="/bookroom/{bookroomId}" var="bookroomUrl">
-                        <spring:param name="bookroomId" value="${bookroom.id}"/>
-                    </spring:url>
-                    <a href="${fn:escapeXml(bookroomUrl)}"><c:out value="${bookroom.owner} ${bookroom.pet}"/></a>
-                </td>
-                 -->
+               
                 <td>
-                    <c:out value="${bookroom.propietario}"/>
+                    <c:out value="${bookroom.owner.firstName} ${bookroom.owner.lastName}"/>
                 </td>
                 <td>
-                    <c:out value="${bookroom.mascota}"/>
+                    <c:out value="${bookroom.pet.name}"/>
                 </td>
                 <td>
                     <c:out value="${bookroom.start}"/>
                 </td>
                 <td>
                      <c:out value="${bookroom.end}"/>
+                </td>
+                <td>
+                     <a href='<spring:url value="/bookroom/${bookroom.id}"/>'> See more</a>
                 </td>
             </tr>
         </c:forEach>

@@ -6,4 +6,6 @@ import org.springframework.samples.petclinic.model.BookRoom;
 
 public interface BookRoomRepository extends CrudRepository<BookRoom, Integer> {
 
+	BookRoom findBookRoomById(int Id);
+
 }
