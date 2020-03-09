@@ -5,6 +5,7 @@ DROP TABLE visits IF EXISTS;
 DROP TABLE pets IF EXISTS;
 DROP TABLE types IF EXISTS;
 DROP TABLE owners IF EXISTS;
+DROP TABLE bookroom IF EXISTS;
 
 
 CREATE TABLE vets (
@@ -12,7 +13,20 @@ CREATE TABLE vets (
   first_name VARCHAR(30),
   last_name  VARCHAR(30)
 );
+
+
 CREATE INDEX vets_last_name ON vets (last_name);
+
+CREATE TABLE bookroom (
+  id         INTEGER IDENTITY PRIMARY KEY,
+  start DATE,
+  end DATE,
+  pet_id INTEGER NOT NULL,
+  owner_id   INTEGER NOT NULL
+);
+
+
+CREATE INDEX bookroom_mascota ON bookroom (owner_id);
 
 CREATE TABLE specialties (
   id   INTEGER IDENTITY PRIMARY KEY,

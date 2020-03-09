@@ -108,6 +108,13 @@
                                 </spring:url>
                                 <a href="${fn:escapeXml(deletePetUrl)}"><fmt:message key="DeletePetMessage"/></a>
                             </td>
+                            <td>
+                                <spring:url value="/bookroom/new/{ownerId}/{petId}" var="createBookroomUrl">
+                                    <spring:param name="ownerId" value="${owner.id}"/>
+                                    <spring:param name="petId" value="${pet.id}"/>
+                                </spring:url>
+                                <a href="${fn:escapeXml(createBookroomUrl)}">Create a book for a room</a>
+                            </td>
                         </tr>
                     </table>
                 </td>
