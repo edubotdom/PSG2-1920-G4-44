@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("/bookroom")
@@ -75,6 +76,17 @@ public class BookRoomController {
 		BookRoom bookroom = this.bookroomService.findBookRoomById(bookroomId);
 		model.put("bookroom", bookroom);
 		return BookRoomController.SHOW_BOOKROOM_FORM;
+	}
+	
+	@GetMapping(value = "/bookroom/{bookroomId}/delete" )
+	public String delete(@PathVariable("bookroomId") int bookroomId, ModelMap model) {
+		BookRoom bookRoom = this.bookroomService.findBookRoomById(bookroomId);
+		//Pet pet = this.clinicService.findPetById(petId);
+		//Owner owner=this.clinicService.findOwnerById(ownerId);
+		
+		
+		this.bookroomService.deleteBookRoom(bookRoom);;
+		return "redirect:/bookroom";
 	}
 
 }

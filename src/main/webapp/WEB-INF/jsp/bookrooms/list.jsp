@@ -37,6 +37,12 @@
                 <td>
                      <a href='<spring:url value="/bookroom/${bookroom.id}"/>'> See more</a>
                 </td>
+                <td>
+                     <spring:url value="/bookroom/{bookroomId}/delete" var="deleteBookRoomUrl">
+                    <spring:param name="bookroomId" value="${bookroom.id}"/>
+                    </spring:url>
+                    <a href="${fn:escapeXml(deleteBookRoomUrl)}"><fmt:message key="deleteBookRoomMessage"/></a>
+                </td>
             </tr>
         </c:forEach>
         </tbody>
