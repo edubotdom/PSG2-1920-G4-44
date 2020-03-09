@@ -11,7 +11,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Table(name = "bookroom")
 @Entity
-public class BookRoom extends NamedEntity {
+public class BookRoom extends BaseEntity {
 
 	@DateTimeFormat(pattern = "yyyy/MM/dd")
 	private LocalDate	start;
@@ -20,10 +20,10 @@ public class BookRoom extends NamedEntity {
 	private LocalDate	end;
 
 	@ManyToOne
-	private Pet			mascota;
+	private Pet			pet;
 
 	@ManyToOne
-	private Owner		propietario;
+	private Owner		owner;
 
 
 	public LocalDate getStart() {
@@ -42,20 +42,20 @@ public class BookRoom extends NamedEntity {
 		this.end = end;
 	}
 
-	public Pet getMascota() {
-		return this.mascota;
+	public Pet getPet() {
+		return this.pet;
 	}
 
-	public void setMascota(final Pet mascota) {
-		this.mascota = mascota;
+	public void setPet(final Pet pet) {
+		this.pet = pet;
 	}
 
-	public Owner getPropietario() {
-		return this.propietario;
+	public Owner getOwner() {
+		return this.owner;
 	}
 
-	public void setPropietario(final Owner propietario) {
-		this.propietario = propietario;
+	public void setOwner(final Owner owner) {
+		this.owner = owner;
 	}
 
 }
