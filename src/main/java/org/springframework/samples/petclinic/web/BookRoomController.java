@@ -78,14 +78,12 @@ public class BookRoomController {
 		return BookRoomController.SHOW_BOOKROOM_FORM;
 	}
 	
-	@GetMapping(value = "/bookroom/{bookroomId}/delete" )
+	@GetMapping(value = "/{bookroomId}/delete" )
 	public String delete(@PathVariable("bookroomId") int bookroomId, ModelMap model) {
 		BookRoom bookRoom = this.bookroomService.findBookRoomById(bookroomId);
-		//Pet pet = this.clinicService.findPetById(petId);
-		//Owner owner=this.clinicService.findOwnerById(ownerId);
 		
 		
-		this.bookroomService.deleteBookRoom(bookRoom);;
+		this.bookroomService.deleteBookRoom(bookRoom);
 		return "redirect:/bookroom";
 	}
 
