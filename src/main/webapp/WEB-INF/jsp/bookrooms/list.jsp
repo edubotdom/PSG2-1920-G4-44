@@ -11,11 +11,11 @@
     <table id="bookroomTable" class="table table-striped">
         <thead>
         <tr>
-            <th style="width: 150px;">Owner</th>
-            <th style="width: 150px;">Pet</th>
-            <th style="width: 120px;">Start</th>
-            <th style="width: 120px">End</th>
-            <th style="width: 120px"></th>
+            <th style="width: 150px;"><fmt:message key="ownerMessage"/></th>
+            <th style="width: 150px;"><fmt:message key="petMessage"/></th>
+            <th style="width: 120px;"><fmt:message key="startMessage"/></th>
+            <th style="width: 120px"><fmt:message key="endMessage"/></th>
+            
         </tr>
         </thead>
         <tbody>
