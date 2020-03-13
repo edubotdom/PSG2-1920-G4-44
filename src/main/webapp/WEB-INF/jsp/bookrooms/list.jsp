@@ -11,11 +11,11 @@
     <table id="bookroomTable" class="table table-striped">
         <thead>
         <tr>
-            <th style="width: 150px;">Owner</th>
-            <th style="width: 150px;">Pet</th>
-            <th style="width: 120px;">Start</th>
-            <th style="width: 120px">End</th>
-            <th style="width: 120px"></th>
+            <th style="width: 150px;"><fmt:message key="ownerMessage"/></th>
+            <th style="width: 150px;"><fmt:message key="petMessage"/></th>
+            <th style="width: 120px;"><fmt:message key="startMessage"/></th>
+            <th style="width: 120px"><fmt:message key="endMessage"/></th>
+            
         </tr>
         </thead>
         <tbody>
@@ -36,6 +36,12 @@
                 </td>
                 <td>
                      <a href='<spring:url value="/bookroom/${bookroom.id}"/>'> See more</a>
+                </td>
+                <td>
+                     <spring:url value="/bookroom/{bookroomId}/delete" var="deleteBookRoomUrl">
+                    <spring:param name="bookroomId" value="${bookroom.id}"/>
+                    </spring:url>
+                    <a href="${fn:escapeXml(deleteBookRoomUrl)}"><fmt:message key="deleteBookRoomMessage"/></a>
                 </td>
             </tr>
         </c:forEach>

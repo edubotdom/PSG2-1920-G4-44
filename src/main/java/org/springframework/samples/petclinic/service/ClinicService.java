@@ -141,8 +141,5 @@ public class ClinicService {
 		vetRepository.delete(vet);
 	}
 
-	public Vet findVetById(int vetId) {
-		return vetRepository.findById(vetId);
-	}
 	
 }
