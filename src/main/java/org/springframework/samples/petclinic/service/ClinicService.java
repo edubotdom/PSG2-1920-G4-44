@@ -70,10 +70,7 @@ public class ClinicService {
 		return ownerRepository.findById(id);
 	}
 	
-	@Transactional(readOnly = true)
-	public Vet findVetById(int id) throws DataAccessException {
-		return vetRepository.findById(id);
-	}
+
 
 	@Transactional(readOnly = true)
 	public Collection<Owner> findOwnerByLastName(String lastName) throws DataAccessException {
