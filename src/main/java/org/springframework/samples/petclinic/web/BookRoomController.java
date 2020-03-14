@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("/bookroom")
@@ -42,23 +41,41 @@ public class BookRoomController {
 		Pet pet = this.clinicService.findPetById(petId);
 		bookroom.setPet(pet);
 		bookroom.setOwner(owner);
+		model.put("owner", bookroom.getOwner().getId());
+		model.put("pet", bookroom.getPet().getId());
 		model.put("bookroom", bookroom);
 		return BookRoomController.CREATE_BOOKROOM_FORM;
 	}
 
-	@PostMapping(value = "/save/{ownerId}/{petId}")
-	public String processCreationForm(@Valid final BookRoom bookroom, final BindingResult result, final ModelMap modelMap, @PathVariable("ownerId") final int ownerId, @PathVariable("petId") final int petId) {
+	@PostMapping(value = "/save/")
+	public String processCreationForm(@Valid final BookRoom bookroom, final BindingResult result, final ModelMap modelMap) {
 		if (result.hasErrors()) {
-			modelMap.addAttribute("bookroom,", bookroom);
+			Owner owner = this.clinicService.findOwnerById(bookroom.getOwnerId());
+			Pet pet = this.clinicService.findPetById(bookroom.getPetId());
+			bookroom.setOwner(owner);
+			bookroom.setPet(pet);
+			modelMap.addAttribute("bookroom", bookroom);
 			return BookRoomController.CREATE_BOOKROOM_FORM;
 		} else {
-			Owner owner = this.clinicService.findOwnerById(ownerId);
-			Pet pet = this.clinicService.findPetById(petId);
-			bookroom.setPet(pet);
-			bookroom.setOwner(owner);
-			this.bookroomService.saveBookRoom(bookroom);
-			modelMap.addAttribute("message", "Event sucesfully added!");
-			return this.listBookRoom(modelMap);
+
+			if (!bookroom.getStart().isBefore(bookroom.getEnd())) {
+				Owner owner = this.clinicService.findOwnerById(bookroom.getOwnerId());
+				Pet pet = this.clinicService.findPetById(bookroom.getPetId());
+				bookroom.setOwner(owner);
+				bookroom.setPet(pet);
+				boolean error = true;
+				modelMap.addAttribute("dateError", error);
+				modelMap.addAttribute("bookroom", bookroom);
+				return BookRoomController.CREATE_BOOKROOM_FORM;
+			} else {
+				Owner owner = this.clinicService.findOwnerById(bookroom.getOwnerId());
+				Pet pet = this.clinicService.findPetById(bookroom.getPetId());
+				bookroom.setOwner(owner);
+				bookroom.setPet(pet);
+				this.bookroomService.saveBookRoom(bookroom);
+				modelMap.addAttribute("message", "Event sucesfully added!");
+				return this.listBookRoom(modelMap);
+			}
 		}
 
 	}
@@ -77,12 +94,11 @@ public class BookRoomController {
 		model.put("bookroom", bookroom);
 		return BookRoomController.SHOW_BOOKROOM_FORM;
 	}
-	
-	@GetMapping(value = "/{bookroomId}/delete" )
-	public String delete(@PathVariable("bookroomId") int bookroomId, ModelMap model) {
+
+	@GetMapping(value = "/{bookroomId}/delete")
+	public String delete(@PathVariable("bookroomId") final int bookroomId, final ModelMap model) {
 		BookRoom bookRoom = this.bookroomService.findBookRoomById(bookroomId);
-		
-		
+
 		this.bookroomService.deleteBookRoom(bookRoom);
 		return "redirect:/bookroom";
 	}

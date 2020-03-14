@@ -14,7 +14,7 @@
             <th style="width: 150px;"><fmt:message key="ownerMessage"/></th>
             <th style="width: 150px;"><fmt:message key="petMessage"/></th>
             <th style="width: 120px;"><fmt:message key="startMessage"/></th>
-            <th style="width: 120px"><fmt:message key="endMessage"/></th>
+            <th style="width: 120px;"><fmt:message key="endMessage"/></th>
             
         </tr>
         </thead>
