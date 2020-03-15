@@ -36,7 +36,7 @@
                 
                  <petclinic:menuItem active="${name eq 'bookroom'}" url="/bookroom" title="List of books for rooms">
                     <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
-                    <span>List of books for rooms</span>
+                    <span><fmt:message key="listBookroms"/></span>
                 </petclinic:menuItem>
 
                 <petclinic:menuItem active="${name eq 'error'}" url="/oups"

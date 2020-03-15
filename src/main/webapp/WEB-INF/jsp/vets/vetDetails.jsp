@@ -29,6 +29,6 @@
        <spring:url value="{vetId}/edit" var="vetUrl">
         <spring:param name="vetId" value="${vet.id}"/>
     </spring:url>
-    <a href="${fn:escapeXml(vetUrl)}" class="btn btn-default">Edit</a>
+    <a href="${fn:escapeXml(vetUrl)}" class="btn btn-default"><fmt:message key="addressMessage"/></a>
 
 </petclinic:layout>

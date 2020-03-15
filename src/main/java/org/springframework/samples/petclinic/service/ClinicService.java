@@ -140,6 +140,11 @@ public class ClinicService {
 	public void deleteVet(Vet vet) throws DataAccessException{
 		vetRepository.delete(vet);
 	}
+	
+	@Transactional(readOnly = true)
+	public Vet findVetById(int vetId) throws DataAccessException {
+		return vetRepository.findById(vetId);
+	}
 
 	
 }
