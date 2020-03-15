@@ -23,7 +23,7 @@
                     <petclinic:selectField name="specialties" label="Specialties" names="${specialties}" size="5"/>
                 </div>
             </div>
-            <button class="btn btn-default" type="submit">Submit</button>
+            <button class="btn btn-default" type="submit"><fmt:message key="sendVetMessage"/></button>
         </form:form>
     </jsp:body>
 </petclinic:layout>

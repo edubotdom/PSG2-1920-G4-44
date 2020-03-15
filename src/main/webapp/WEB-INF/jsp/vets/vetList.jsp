@@ -49,5 +49,5 @@
             </td>            
         </tr>
     </table>
-     <a class="btn btn-default" href='<spring:url value="/vets/new"/>'>Create veterinarian</a>
+     <a class="btn btn-default" href='<spring:url value="/vets/new"/>'><fmt:message key="createVetMessage"/></a>
 </petclinic:layout>
