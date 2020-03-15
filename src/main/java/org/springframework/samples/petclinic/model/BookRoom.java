@@ -25,6 +25,26 @@ public class BookRoom extends BaseEntity {
 	@ManyToOne
 	private Owner		owner;
 
+	private Integer		idO;
+
+	private Integer		idP;
+
+
+	public Integer getOwnerId() {
+		return this.idO;
+	}
+
+	public void setOwnerId(final Integer ownerId) {
+		this.idO = ownerId;
+	}
+
+	public Integer getPetId() {
+		return this.idP;
+	}
+
+	public void setPetId(final Integer petId) {
+		this.idP = petId;
+	}
 
 	public LocalDate getStart() {
 		return this.start;

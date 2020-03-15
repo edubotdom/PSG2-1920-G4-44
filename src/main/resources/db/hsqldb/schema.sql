@@ -21,6 +21,8 @@ CREATE TABLE bookroom (
   id         INTEGER IDENTITY PRIMARY KEY,
   start DATE,
   end DATE,
+  idO INTEGER,
+  idP INTEGER,
   pet_id INTEGER NOT NULL,
   owner_id   INTEGER NOT NULL
 );
