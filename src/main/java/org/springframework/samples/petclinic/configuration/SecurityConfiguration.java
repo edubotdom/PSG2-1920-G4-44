@@ -1,3 +1,4 @@
+
 package org.springframework.samples.petclinic.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,18 +23,15 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests()
-				.antMatchers(HttpMethod.GET, "/**").permitAll()
-				.antMatchers(HttpMethod.POST, "/**").permitAll().and()
-				// .formLogin()
-				// .loginPage("/login").failureUrl("/login-error")
-				.httpBasic()
-				.and().csrf().disable();
+	protected void configure(final HttpSecurity http) throws Exception {
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/**").permitAll().antMatchers(HttpMethod.POST, "/**").permitAll().and()
+			// .formLogin()
+			// .loginPage("/login").failureUrl("/login-error")
+			.httpBasic().and().csrf().disable();
 	}
 
 	@Autowired
-	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+	public void configureGlobal(final AuthenticationManagerBuilder auth) throws Exception {
 		PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
 		auth.inMemoryAuthentication().withUser("spring").password(encoder.encode("password")).roles("USER");
 	}
