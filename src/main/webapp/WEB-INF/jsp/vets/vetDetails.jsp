@@ -7,7 +7,7 @@
 
 <petclinic:layout pageName="vets">
 
-    <h2>Vet</h2>
+    <h2><fmt:message key="vet"/></h2>
 
 
     <table class="table table-striped">
@@ -29,6 +29,6 @@
        <spring:url value="{vetId}/edit" var="vetUrl">
         <spring:param name="vetId" value="${vet.id}"/>
     </spring:url>
-    <a href="${fn:escapeXml(vetUrl)}" class="btn btn-default"><fmt:message key="addressMessage"/></a>
+    <a href="${fn:escapeXml(vetUrl)}" class="btn btn-default"><fmt:message key="edit"/></a>
 
 </petclinic:layout>

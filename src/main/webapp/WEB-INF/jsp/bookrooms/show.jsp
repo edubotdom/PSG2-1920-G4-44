@@ -7,7 +7,7 @@
 
 <petclinic:layout pageName="bookroom">
 
-    <h2>Information of the book</h2>
+    <h2><fmt:message key="infoBookRoom"/></h2>
 
 
     <table class="table table-striped">
