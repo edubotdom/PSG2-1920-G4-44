@@ -15,9 +15,15 @@
         </script>
     </jsp:attribute>
     <jsp:body>
+    
+    
+    
         <h2>Create book for a room</h2>
+        <c:if test="${dateError==true}">
+        <h4><fmt:message key="errorDateBookRoom"/></h4>
+        </c:if>
         <form:form modelAttribute="bookroom"
-                   class="form-horizontal" action="/bookroom/save/${bookroom.owner.id}/${bookroom.pet.id}">
+                   class="form-horizontal" action="/bookroom/save/">
             <div class="form-group has-feedback">
                 <petclinic:inputField label="Start Date of the book of the room" name="start"/>
                 <petclinic:inputField label="End Date of the book of the room" name="end"/>
@@ -25,7 +31,9 @@
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10"> 
                 <input type="hidden" name="id" value="${bookroom.id}"/>
-                      <button class="btn btn-default" type="submit">Create book</button>
+                <input type="hidden" name="petId" value="${bookroom.pet.id}"/>
+                <input type="hidden" name="ownerId" value="${bookroom.owner.id}"/>
+                      <button class="btn btn-default" type="submit" >Create book</button>
 				</div>
             </div>
         </form:form>
