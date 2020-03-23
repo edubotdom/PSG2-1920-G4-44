@@ -55,3 +55,10 @@ INSERT INTO visits VALUES (4, 7, '2013-01-04', 'spayed');
 INSERT INTO bookroom(id,start,end,pet_id,owner_id) VALUES (1,'2020-05-01','2020-05-05', 1, 1);
 INSERT INTO bookroom(id,start,end,pet_id,owner_id) VALUES (2,'2020-05-01','2020-05-25', 1, 1);
 
+INSERT INTO causes(id,name,description,budged_target,organization,is_closed) VALUES (1,'Save the animals','We need to save the animals!',100.0,'WWF',true);
+INSERT INTO causes(id,name,description,budged_target,organization,is_closed) VALUES (2,'Save the planet','We need to save our planet!',10000.0,'Green Peace',false);
+
+INSERT INTO donations(id,amount,date_of_donation,client,cause_id) VALUES (1,13.5,'2020-1-17','Owner 1',1);
+INSERT INTO donations(id,amount,date_of_donation,client,cause_id) VALUES (2,86.5,'2020-3-20','Owner 2',1);
+
+

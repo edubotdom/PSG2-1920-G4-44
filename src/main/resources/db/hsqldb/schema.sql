@@ -6,6 +6,8 @@ DROP TABLE pets IF EXISTS;
 DROP TABLE types IF EXISTS;
 DROP TABLE owners IF EXISTS;
 DROP TABLE bookroom IF EXISTS;
+DROP TABLE causes IF EXISTS;
+DROP TABLE donations IF EXISTS;
 
 
 CREATE TABLE vets (
@@ -29,6 +31,28 @@ CREATE TABLE bookroom (
 
 
 CREATE INDEX bookroom_mascota ON bookroom (owner_id);
+
+
+CREATE TABLE causes (
+  id         INTEGER IDENTITY PRIMARY KEY,
+  name VARCHAR(30),
+  description  VARCHAR(90),
+  budged_target DOUBLE,
+  organization VARCHAR(30),
+  is_closed BOOLEAN
+);
+
+CREATE INDEX causes_id ON causes (id);
+
+CREATE TABLE donations (
+  id         INTEGER IDENTITY PRIMARY KEY,
+  amount DOUBLE,
+  date_of_donation  DATE,
+  client VARCHAR(30),
+  cause_id INTEGER
+);
+
+CREATE INDEX donations_id ON donations (id);
 
 CREATE TABLE specialties (
   id   INTEGER IDENTITY PRIMARY KEY,
