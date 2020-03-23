@@ -18,7 +18,7 @@
     
     
     
-        <h2>Create book for a room</h2>
+        <h2><fmt:message key="createBookRoom"/></h2>
         <c:if test="${dateError==true}">
         <h4><fmt:message key="errorDateBookRoom"/></h4>
         </c:if>
@@ -33,7 +33,7 @@
                 <input type="hidden" name="id" value="${bookroom.id}"/>
                 <input type="hidden" name="petId" value="${bookroom.pet.id}"/>
                 <input type="hidden" name="ownerId" value="${bookroom.owner.id}"/>
-                      <button class="btn btn-default" type="submit" >Create book</button>
+                      <button class="btn btn-default" type="submit" ><fmt:message key="createBookRoom"/></button>
 				</div>
             </div>
         </form:form>

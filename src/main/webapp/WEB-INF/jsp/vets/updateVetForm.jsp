@@ -8,7 +8,7 @@
 <petclinic:layout pageName="vets">
     <jsp:body>
         <h2>
-            Vet
+            <fmt:message key="vet"/>
         </h2>
         <form:form modelAttribute="vet"
                    class="form-horizontal"
