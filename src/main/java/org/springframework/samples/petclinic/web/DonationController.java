@@ -56,8 +56,8 @@ public class DonationController {
 		Cause cause = this.causeService.findCauseById(causeId);
 		donation.setCause(cause);
 		cause.addDonation(donation);
+		model.put("cause", cause.getId());
 		model.put("donation", donation);
-		model.put("cause", cause);
 		return DonationController.DONATIONS_CREATE;
 	}
 	
