@@ -12,7 +12,7 @@
         <h4><fmt:message key="errorDonation"/></h4>
         </c:if>
         <form:form modelAttribute="donation"
-                   class="form-horizontal" action="/donation/save/">
+                   class="form-horizontal" action="/donation/create/${causeId}">
             <div class="form-group has-feedback">
                 <petclinic:inputField label="Amount" name="amount"/>
                 <petclinic:inputField label="Date" name="date"/>

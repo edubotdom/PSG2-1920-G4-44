@@ -53,16 +53,15 @@ public class DonationController {
 	@GetMapping("/create/{causeId}")
 	public String createDonation(@PathVariable("causeId") final int causeId, final Map<String, Object> model) {
 		Donation donation = new Donation();
-		Cause cause = this.causeService.findCauseById(causeId);
-		donation.setCause(cause);
-		cause.addDonation(donation);
-		model.put("cause", cause.getId());
 		model.put("donation", donation);
 		return DonationController.DONATIONS_CREATE;
 	}
 	
-	@PostMapping("/save")
-	public String createCause(final Map<String, Object> model, @Valid final Donation donation, final BindingResult result) {
+	@PostMapping("/create/{causeId}")
+	public String createDonation(final Map<String, Object> model, @Valid final Donation donation, @PathVariable("causeId") final int causeId, final BindingResult result) {
+		Cause cause = this.causeService.findCauseById(causeId);
+		donation.setCause(cause);
+		cause.addDonation(donation);
 		if (result.hasErrors()) {
 			model.put("error", true);
 			model.put("donation", donation);
@@ -70,6 +69,7 @@ public class DonationController {
 
 		} else {
 			this.donationService.save(donation);
+			this.causeService.save(cause);
 			return "redirect:/donation";
 		}
 	}
