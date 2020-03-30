@@ -41,7 +41,9 @@
                      <a href='<spring:url value="/cause/${cause.id}"/>'><fmt:message key="seeMore"/></a>
                 </td>
                 <td>
-                     <a href='<spring:url value="/donation/create/${cause.id}"></spring:url>'><fmt:message key="createNewDonation"/></a>
+                <c:if test="${cause.isClosed==false}">         
+                  <p><a href='<spring:url value="/donation/create/${cause.id}"></spring:url>'><fmt:message key="createNewDonation"/></a></p>
+                </c:if>
                 </td>
             </tr>
         </c:forEach>

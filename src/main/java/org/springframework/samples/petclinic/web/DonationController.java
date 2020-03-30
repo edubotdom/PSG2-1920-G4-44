@@ -62,6 +62,14 @@ public class DonationController {
 		Cause cause = this.causeService.findCauseById(causeId);
 		donation.setCause(cause);
 		cause.addDonation(donation);
+		Double total = 0.0;
+		for(Donation d:cause.getDonations()) {
+			total = total + d.getAmount();
+		}
+		if(cause.getBudgetTarget()<=total) {
+			cause.setIsClosed(true);
+		}
+		
 		if (result.hasErrors()) {
 			model.put("error", true);
 			model.put("donation", donation);
