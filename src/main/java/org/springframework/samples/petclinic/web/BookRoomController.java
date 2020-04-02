@@ -53,14 +53,14 @@ public class BookRoomController {
 
 	@PostMapping(value = "/save/")
 	public String processCreationForm(@Valid final BookRoom bookroom, final BindingResult result, final ModelMap modelMap) {
-
+		
 		Set<BookRoom> reservas = new HashSet<BookRoom>();
 		for(BookRoom r: this.bookroomService.findAll() ) {
 			if(r.getPetId() == bookroom.getPetId()) {
 				reservas.add(r);
 			}
 		}
-			boolean sePuedeReservar =true;
+			boolean sePuedeReservar= true;
 			LocalDate start= bookroom.getStart();
 			LocalDate end= bookroom.getEnd();
 
@@ -68,7 +68,8 @@ public class BookRoomController {
 				LocalDate startR = r.getStart();
 				LocalDate endR = r.getEnd();
 				if((start.isBefore(endR)&& start.isAfter(startR)) ||
-						(end.isBefore(endR) && end.isAfter(startR))){
+						(end.isBefore(endR) && end.isAfter(startR)) ||
+						(start.equals(startR) && end.equals(endR))){
 					sePuedeReservar = false;
 					break;
 				}
@@ -81,8 +82,7 @@ public class BookRoomController {
 			modelMap.addAttribute("bookroom", bookroom);
 			return BookRoomController.CREATE_BOOKROOM_FORM;
 		  } else {
-
-			if ((!bookroom.getStart().isBefore(bookroom.getEnd())) || (sePuedeReservar =false) ) {
+			if ((!bookroom.getStart().isBefore(bookroom.getEnd()))) {
 				Owner owner = this.clinicService.findOwnerById(bookroom.getOwnerId());
 				Pet pet = this.clinicService.findPetById(bookroom.getPetId());
 				bookroom.setOwner(owner);
@@ -92,7 +92,16 @@ public class BookRoomController {
 				modelMap.addAttribute("bookroom", bookroom);
 				return BookRoomController.CREATE_BOOKROOM_FORM;
 				
-			} else {
+			}else if(!sePuedeReservar) {
+				Owner owner = this.clinicService.findOwnerById(bookroom.getOwnerId());
+				Pet pet = this.clinicService.findPetById(bookroom.getPetId());
+				bookroom.setOwner(owner);
+				bookroom.setPet(pet);
+				boolean error = true;
+				modelMap.addAttribute("concurrentError", error);
+				modelMap.addAttribute("bookroom", bookroom);
+				return BookRoomController.CREATE_BOOKROOM_FORM;
+			} else  {
 				Owner owner = this.clinicService.findOwnerById(bookroom.getOwnerId());
 				Pet pet = this.clinicService.findPetById(bookroom.getPetId());
 				bookroom.setOwner(owner);
