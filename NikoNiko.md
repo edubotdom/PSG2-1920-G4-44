@@ -32,10 +32,11 @@ In the retrospective meeting, the team has a discussion about those results.
 
 ## Sprint Template
 
-| Day           | [Member A]    | [Member B]     | [Member C]     | [Member D]     | [Member E]     | [Member F]     |
-| ------------- | ------------- | -------------  | -------------  | -------------  | -------------  | -------------  |
-| Day 1         |               |                |                |                |                |                |
-| Day 2         |               |                |                |                |                |                |
-| Day 3         |               |                |                |                |                |                |
-| Day 4         |               |                |                |                |                |                |
-...
+| Day           | Luis Miguel Bellido | Eduardo Miguel Botía | Marta Díaz     | Carlos Santos      | Javier Solís    |
+| ------------- | ------------------- | -------------------- | -------------  | ------------------ | --------------- |
+| Day 1         |                     |    :neutral_face:    |                |                    |                 |
+| Day 2         |                     |    :fearful:         |                |                    |                 |
+| Day 3         |                     |    :smiley:          |                |                    |                 |
+| Day 4         |                     |                      |                |                    |                 |
+| Day 5         |                     |                      |                |                    |                 |
+
