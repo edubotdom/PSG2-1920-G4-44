@@ -67,12 +67,25 @@ public class BookRoomController {
 			for(BookRoom r: reservas) {
 				LocalDate startR = r.getStart();
 				LocalDate endR = r.getEnd();
+				/*
 				if((start.isBefore(endR)&& start.isAfter(startR)) ||
 						(end.isBefore(endR) && end.isAfter(startR)) ||
-						(start.equals(startR) && end.equals(endR))){
+						(start.equals(startR)) || (end.equals(endR)) ||
+						(start.isBefore(endR)) && (end.isAfter(startR)) ||
+						(start.isBefore(startR)) && (end.isAfter(endR))){
 					sePuedeReservar = false;
 					break;
 				}
+				*/
+				boolean reservaPrevia = (start.isBefore(startR)&& end.isBefore(startR));
+				boolean reservaPosterior = (start.isAfter(endR) && end.isAfter(endR));
+				boolean coincidePrincipioFinal = (start.equals(startR)) || (end.equals(endR));
+				
+				if(!(reservaPrevia&&!coincidePrincipioFinal || reservaPosterior&&!coincidePrincipioFinal)){
+					sePuedeReservar = false;
+					break;
+				}
+				
 			}		
 		if (result.hasErrors()) {
 			Owner owner = this.clinicService.findOwnerById(bookroom.getOwnerId());
