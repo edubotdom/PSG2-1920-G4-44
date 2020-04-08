@@ -34,6 +34,7 @@ import org.springframework.context.annotation.FilterType;
 import org.springframework.samples.petclinic.model.Owner;
 import org.springframework.samples.petclinic.model.Pet;
 import org.springframework.samples.petclinic.model.PetType;
+import org.springframework.samples.petclinic.service.BookRoomService;
 import org.springframework.samples.petclinic.service.ClinicService;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
@@ -58,6 +59,8 @@ class PetControllerTests {
 	@MockBean
 	private ClinicService clinicService;
 
+	@MockBean
+	private BookRoomService bookRoomService;
 	@Autowired
 	private MockMvc mockMvc;
 

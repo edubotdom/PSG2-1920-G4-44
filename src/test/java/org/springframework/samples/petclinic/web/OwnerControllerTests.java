@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.samples.petclinic.model.Owner;
+import org.springframework.samples.petclinic.service.BookRoomService;
 import org.springframework.samples.petclinic.service.ClinicService;
 import org.springframework.test.context.junit.jupiter.web.SpringJUnitWebConfig;
 import org.springframework.test.web.servlet.MockMvc;
@@ -36,6 +37,9 @@ class OwnerControllerTests {
 
 	@MockBean
 	private ClinicService clinicService;
+	
+	@MockBean
+	private BookRoomService bookRoomService;
 
 	@Autowired
 	private MockMvc mockMvc;
