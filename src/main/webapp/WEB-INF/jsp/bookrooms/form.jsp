@@ -22,6 +22,9 @@
         <c:if test="${dateError==true}">
         <h4><fmt:message key="errorDateBookRoom"/></h4>
         </c:if>
+        <c:if test="${concurrentError==true}">
+        <h5><fmt:message key="errorConcurrentBookRoom"/></h5>
+        </c:if>
         <form:form modelAttribute="bookroom"
                    class="form-horizontal" action="/bookroom/save/">
             <div class="form-group has-feedback">
