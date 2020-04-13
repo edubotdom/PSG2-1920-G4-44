@@ -34,9 +34,16 @@ In the retrospective meeting, the team has a discussion about those results.
 
 | Day           | Luis Miguel Bellido | Eduardo Miguel Botía | Marta Díaz     | Carlos Santos      | Javier Solís    |
 | ------------- | ------------------- | -------------------- | -------------  | ------------------ | --------------- |
-| Day 1         |                     |    :neutral_face:    |                |		    -            |  :neutral_face: |
-| Day 2         |                     |    :fearful:         |                |   :worried:        |   :smiley:      |
-| Day 3         |                     |    :smiley:          |                |   :smiley:         |   :smiley:      |
-| Day 4         |                     |    :smiley:          |                |                    |   :smiley:      |
-| Day 5         |                     |                      |                |                    |                 |
+| Day 1         |                     |    :neutral_face:    |    :smiley:    |		    -            |  :neutral_face: |
+| Day 2         |                     |    :fearful:         |    :smiley:    |   :worried:        |   :smiley:      |
+| Day 3         |                     |    :smiley:          | :neutral_face: |   :smiley:         |   :smiley:      |
+| Day 4         |                     |    :smiley:          |   :worried:    |                    |   :smiley:      |
+| Day 5         |                     |                      |   :worried:    |                    |                 |
+| Day 6         |                     |                      |   :smiley:     |                    |                 |
+| Day 7         |                     |                      |   :smiley:     |                    |                 |
+| Day 8         |                     |                      |   :smiley:     |                    |                 |
+| Day 9         |                     |                      | :neutral_face: |                    |                 |
+| Day 10        |                     |                      |  :fearful:     |                    |                 |
+| Day 11        |                     |                      | :neutral_face: |                    |                 |
+| Day 12        |                     |                      |  :smiley:      |                    |                 |
 
