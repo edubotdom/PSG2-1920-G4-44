@@ -34,9 +34,9 @@ In the retrospective meeting, the team has a discussion about those results.
 
 | Day           | Luis Miguel Bellido | Eduardo Miguel Botía | Marta Díaz     | Carlos Santos      | Javier Solís    |
 | ------------- | ------------------- | -------------------- | -------------  | ------------------ | --------------- |
-| Day 1         |                     |    :neutral_face:    |                |		    -          |                 |
-| Day 2         |                     |    :fearful:         |                |   :worried:        |                 |
-| Day 3         |                     |    :smiley:          |                |   :smiley:         |                 |
-| Day 4         |                     |                      |                |                    |                 |
+| Day 1         |                     |    :neutral_face:    |                |		    -            |  :neutral_face: |
+| Day 2         |                     |    :fearful:         |                |   :worried:        |   :smiley:      |
+| Day 3         |                     |    :smiley:          |                |   :smiley:         |   :smiley:      |
+| Day 4         |                     |                      |                |                    |   :smiley:      |
 | Day 5         |                     |                      |                |                    |                 |
 
