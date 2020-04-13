@@ -38,6 +38,6 @@ In the retrospective meeting, the team has a discussion about those results.
 | Day 2         |   :smiley:          |    :fearful:         |    :smiley:    |   :worried:        |   :smiley:      |
 | Day 3         |   -                 |    :smiley:          | :neutral_face: |   :smiley:         |   :smiley:      |
 | Day 4         |   :worried:         |    :smiley:          |   :worried:    |   :smiley:         |   :smiley:      |
-| Day 5         |   :fearful:         |    :smiley:          |  :smiley:      |   :smiley:         |                 |
+| Day 5         |   :fearful:         |    :smiley:          |  :smiley:      |   :smiley:         |  :neutral_face: |
 
 
