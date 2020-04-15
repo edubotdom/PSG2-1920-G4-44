@@ -21,10 +21,8 @@ import java.util.Map;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.samples.petclinic.model.BookRoom;
 import org.springframework.samples.petclinic.model.Owner;
 import org.springframework.samples.petclinic.model.Pet;
-import org.springframework.samples.petclinic.service.BookRoomService;
 import org.springframework.samples.petclinic.service.ClinicService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,12 +43,10 @@ public class OwnerController {
 	private static final String VIEWS_OWNER_CREATE_OR_UPDATE_FORM = "owners/createOrUpdateOwnerForm";
 
 	private final ClinicService clinicService;
-	private final BookRoomService bookroomService;
 
 	@Autowired
-	public OwnerController(ClinicService clinicService,BookRoomService bookroomService) {
+	public OwnerController(ClinicService clinicService) {
 		this.clinicService = clinicService;
-		this.bookroomService=bookroomService;
 	}
 
 	@InitBinder
@@ -141,15 +137,10 @@ public class OwnerController {
 		return mav;
 	}
 	
-    @RequestMapping(value = "/owners/{ownerId}/delete", method = RequestMethod.GET)
+    @GetMapping(value = "/owners/{ownerId}/delete")
     public String delete(@PathVariable("ownerId") int ownerId, Model model) {
     		Owner owner = this.clinicService.findOwnerById(ownerId);
-    		Iterable<BookRoom> bookRooms=this.bookroomService.findAll();
-    		for(BookRoom br:bookRooms) {
-    			if(br.getOwner().equals(owner)) {
-    			this.bookroomService.deleteBookRoom(br);
-    			}
-    		}
+    		this.clinicService.removeBookRoomsWithOwner(owner);
     		
     		for(Pet pet:owner.getPets()) {
     		this.clinicService.deletePet(pet);
