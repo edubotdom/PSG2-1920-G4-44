@@ -16,17 +16,19 @@
 package org.springframework.samples.petclinic.service;
 
 import java.util.Collection;
-import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.dao.DataAccessException;
+import org.springframework.samples.petclinic.model.BookRoom;
 import org.springframework.samples.petclinic.model.Owner;
 import org.springframework.samples.petclinic.model.Pet;
 import org.springframework.samples.petclinic.model.PetType;
 import org.springframework.samples.petclinic.model.Specialty;
 import org.springframework.samples.petclinic.model.Vet;
 import org.springframework.samples.petclinic.model.Visit;
+import org.springframework.samples.petclinic.repository.BookRoomRepository;
 import org.springframework.samples.petclinic.repository.OwnerRepository;
 import org.springframework.samples.petclinic.repository.PetRepository;
 import org.springframework.samples.petclinic.repository.VetRepository;
@@ -50,14 +52,20 @@ public class ClinicService {
 	private OwnerRepository ownerRepository;
 
 	private VisitRepository visitRepository;
+	
+	private BookRoomRepository bookRoomRepository;
+	
+	private BookRoomService bookroomService;
 
 	@Autowired
 	public ClinicService(PetRepository petRepository, VetRepository vetRepository, OwnerRepository ownerRepository,
-			VisitRepository visitRepository) {
+			VisitRepository visitRepository,BookRoomRepository bookRoomRepository,BookRoomService bookroomService) {
 		this.petRepository = petRepository;
 		this.vetRepository = vetRepository;
 		this.ownerRepository = ownerRepository;
 		this.visitRepository = visitRepository;
+		this.bookRoomRepository=bookRoomRepository;
+		this.bookroomService=bookroomService;
 	}
 
 	@Transactional(readOnly = true)
@@ -145,6 +153,22 @@ public class ClinicService {
 	public Vet findVetById(int vetId) throws DataAccessException {
 		return vetRepository.findById(vetId);
 	}
-
+	
+	@Transactional
+	public void removeBookRoomsWithOwner(Owner owner) {
+		Iterable<BookRoom> bookRooms=this.bookRoomRepository.findAllByOwnerId(owner.getId());
+		for(BookRoom br:bookRooms) {
+			this.bookroomService.deleteBookRoom(br);
+			
+		}
+	}
+	
+	public void removeBookRoomsWithPet(Pet pet) {
+		Iterable<BookRoom> bookRooms=this.bookRoomRepository.findAllByPetId(pet.getId());
+		for(BookRoom br:bookRooms) {
+			this.bookroomService.deleteBookRoom(br);
+			
+		}
+	}
 	
 }

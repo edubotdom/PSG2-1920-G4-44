@@ -19,9 +19,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/cause")
 public class CauseController {
 
-	private final static String	CAUSES_LIST		= "causes/list";
-	private final static String	CAUSES_SHOW		= "causes/show";
-	private final static String	CAUSES_CREATE	= "causes/form";
+	private static final String	CAUSES_LIST		= "causes/list";
+	private static final String	CAUSES_SHOW		= "causes/show";
+	private static final String	CAUSES_CREATE	= "causes/form";
 
 	@Autowired
 	private CauseService		causeService;
