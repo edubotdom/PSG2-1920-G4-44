@@ -20,9 +20,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/donation")
 public class DonationController {
 	
-	private final static String	DONATIONS_LIST		= "donations/list";
-	private final static String	DONATIONS_SHOW		= "donations/show";
-	private final static String	DONATIONS_CREATE	= "donations/form";
+	private static final String	DONATIONS_LIST		= "donations/list";
+	private static final String	DONATIONS_SHOW		= "donations/show";
+	private static final String	DONATIONS_CREATE	= "donations/form";
 	
 	@Autowired
 	private DonationService		donationService;

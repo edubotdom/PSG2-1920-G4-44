@@ -1,14 +1,12 @@
 
 package org.springframework.samples.petclinic.web;
 
-import java.time.LocalDate;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
+
 
 import javax.validation.Valid;
 
-import org.hibernate.mapping.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.samples.petclinic.model.BookRoom;
 import org.springframework.samples.petclinic.model.Owner;
@@ -53,40 +51,7 @@ public class BookRoomController {
 
 	@PostMapping(value = "/save/")
 	public String processCreationForm(@Valid final BookRoom bookroom, final BindingResult result, final ModelMap modelMap) {
-		
-		Set<BookRoom> reservas = new HashSet<BookRoom>();
-		for(BookRoom r: this.bookroomService.findAll() ) {
-			if(r.getPetId() == bookroom.getPetId()) {
-				reservas.add(r);
-			}
-		}
-			boolean sePuedeReservar= true;
-			LocalDate start= bookroom.getStart();
-			LocalDate end= bookroom.getEnd();
-
-			for(BookRoom r: reservas) {
-				LocalDate startR = r.getStart();
-				LocalDate endR = r.getEnd();
-				/*
-				if((start.isBefore(endR)&& start.isAfter(startR)) ||
-						(end.isBefore(endR) && end.isAfter(startR)) ||
-						(start.equals(startR)) || (end.equals(endR)) ||
-						(start.isBefore(endR)) && (end.isAfter(startR)) ||
-						(start.isBefore(startR)) && (end.isAfter(endR))){
-					sePuedeReservar = false;
-					break;
-				}
-				*/
-				boolean reservaPrevia = (start.isBefore(startR)&& end.isBefore(startR));
-				boolean reservaPosterior = (start.isAfter(endR) && end.isAfter(endR));
-				boolean coincidePrincipioFinal = (start.equals(startR)) || (end.equals(endR));
 				
-				if(!(reservaPrevia&&!coincidePrincipioFinal || reservaPosterior&&!coincidePrincipioFinal)){
-					sePuedeReservar = false;
-					break;
-				}
-				
-			}		
 		if (result.hasErrors()) {
 			Owner owner = this.clinicService.findOwnerById(bookroom.getOwnerId());
 			Pet pet = this.clinicService.findPetById(bookroom.getPetId());
@@ -105,7 +70,7 @@ public class BookRoomController {
 				modelMap.addAttribute("bookroom", bookroom);
 				return BookRoomController.CREATE_BOOKROOM_FORM;
 				
-			}else if(!sePuedeReservar) {
+			}else if(!this.bookroomService.sePuedeReservar(bookroom)) {
 				Owner owner = this.clinicService.findOwnerById(bookroom.getOwnerId());
 				Pet pet = this.clinicService.findPetById(bookroom.getPetId());
 				bookroom.setOwner(owner);

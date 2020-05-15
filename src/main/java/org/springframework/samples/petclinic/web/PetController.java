@@ -16,11 +16,9 @@
 package org.springframework.samples.petclinic.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.samples.petclinic.model.BookRoom;
 import org.springframework.samples.petclinic.model.Owner;
 import org.springframework.samples.petclinic.model.Pet;
 import org.springframework.samples.petclinic.model.PetType;
-import org.springframework.samples.petclinic.service.BookRoomService;
 import org.springframework.samples.petclinic.service.ClinicService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -46,12 +44,11 @@ public class PetController {
 
 	private final ClinicService clinicService;
 	
-	private final BookRoomService bookroomService;
+
 
 	@Autowired
-	public PetController(ClinicService clinicService,BookRoomService bookRoomService) {
+	public PetController(ClinicService clinicService) {
 		this.clinicService = clinicService;
-		this.bookroomService=bookRoomService;
 	}
 
 	@ModelAttribute("types")
@@ -118,16 +115,13 @@ public class PetController {
 		}
 	}
 	
+	
 	@GetMapping(value = "/pets/{petId}/delete")
 	public String deletePet(@PathVariable("petId") int petId,@PathVariable("ownerId") int ownerId, ModelMap model) {
 		Pet pet = this.clinicService.findPetById(petId);
 		Owner owner=this.clinicService.findOwnerById(ownerId);
-		Iterable<BookRoom> bookRooms=this.bookroomService.findAll();
-		for(BookRoom br:bookRooms) {
-			if(br.getPet().equals(pet)) {
-			this.bookroomService.deleteBookRoom(br);
-			}
-		}
+		this.clinicService.removeBookRoomsWithPet(pet);
+		
 		owner.deletePet(pet);
 		this.clinicService.deletePet(pet);
 		return "redirect:/owners/{ownerId}";
