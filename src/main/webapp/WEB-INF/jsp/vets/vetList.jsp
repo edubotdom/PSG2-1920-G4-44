@@ -37,6 +37,12 @@
                     </spring:url>
                     <a href="${fn:escapeXml(deleteVetUrl)}"><fmt:message key="deleteVetMessage"/></a>
                 </td>
+                 <td>
+                    <spring:url value="/vets/{vetId}/edit" var="editVetUrl">
+                    <spring:param name="vetId" value="${vet.id}"/>
+                    </spring:url>
+                    <a href="${fn:escapeXml(editVetUrl)}"><fmt:message key="editVet"/></a>
+                </td>
             </tr>
         </c:forEach>
         </tbody>
