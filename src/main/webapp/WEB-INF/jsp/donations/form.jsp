@@ -14,12 +14,15 @@
         <form:form modelAttribute="donation"
                    class="form-horizontal" action="/donation/create/${causeId}">
             <div class="form-group has-feedback">
-                <petclinic:inputField label="Amount" name="amount"/>
-                <petclinic:inputField label="Date" name="date"/>
-                <petclinic:inputField label="Client" name="client"/>
+                <label><fmt:message key="amountDonation"/></label><input name="amount"/><br>
+             <br>
+			<label><fmt:message key="dateDonation"/></label><input name="date"/><br>
+			<br>
+			<label><fmt:message key="clientDonation"/></label><input name="client"/><br>
+			<br>
             </div>
             <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10"> 
+                <div> 
                 <input type="hidden" name="id" value="${donation.id}"/>
                       <button class="btn btn-default" type="submit" ><fmt:message key="createDonation"/></button>
 				</div>
