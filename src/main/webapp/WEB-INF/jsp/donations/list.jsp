@@ -14,6 +14,7 @@
             <th style="width: 150px;"><fmt:message key="donationCause"/></th>
             <th style="width: 150px;"><fmt:message key="donationAmount"/></th>
             <th style="width: 120px;"><fmt:message key="donationDate"/></th>
+            <th style="width: 120px;"><fmt:message key="budgetTarget"/></th>
             <th></th>
             
         </tr>
@@ -30,6 +31,9 @@
                 </td>
                 <td>
                 	<c:out value="${donation.date}"></c:out>
+                </td>
+                <td>
+                	<c:out value="${donation.cause.budgetTarget}"/>
                 </td>
                 <td>
                      <a href='<spring:url value="/donation/${donation.id}"/>'><fmt:message key="seeMore"/></a>
