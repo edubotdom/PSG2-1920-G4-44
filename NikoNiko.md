@@ -34,11 +34,11 @@ In the retrospective meeting, the team has a discussion about those results.
 
 | Day           | Luis Miguel Bellido | Eduardo Miguel Botía | Marta Díaz     | Carlos Santos      | Javier Solís    |
 | ------------- | ------------------- | -------------------- | -------------  | ------------------ | --------------- |
-| 23/03/2020    |   :smiley:          |    :neutral_face:    |    :smiley:    |		    -            |  :neutral_face: |
-| 30/03/2020    |   :smiley:          |    :fearful:         |    :smiley:    |   :worried:        |   :smiley:      |
-| 06/04/2020    |   -                 |    :smiley:          | :neutral_face: |   :smiley:         |   :smiley:      |
-| 13/04/2020    |   :worried:         |    :smiley:          |   :worried:    |   :smiley:         |   :smiley:      |
-| 20/04/2020    |   :fearful:         |    :smiley:          |  :smiley:      |   :smiley:         |  :neutral_face: |
+| 23/03/2020    |   :neutral_face:    |    :neutral_face:    |    :smiley:    |		    -            |  :neutral_face: |
+| 30/03/2020    |   :worried:         |    :fearful:         |    :smiley:    |   :worried:        |   :smiley:      |
+| 06/04/2020    |   :worried:         |    :smiley:          | :neutral_face: |   :smiley:         |   :smiley:      |
+| 13/04/2020    |   :smiley:          |    :smiley:          |   :worried:    |   :smiley:         |   :smiley:      |
+| 20/04/2020    |   :smiley:          |    :smiley:          |  :smiley:      |   :smiley:         |  :neutral_face: |
 
 
 ### Sprint L4: L4-ITIL
