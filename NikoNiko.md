@@ -45,9 +45,9 @@ In the retrospective meeting, the team has a discussion about those results.
 
 | Day           | Luis Miguel Bellido | Eduardo Miguel Botía | Marta Díaz     | Carlos Santos      | Javier Solís    |
 | ------------- | ------------------- | -------------------- | -------------  | ------------------ | --------------- |
-| 04/05/2020    |   :smiley:          |    :neutral_face:    |    :smiley:    |		    -            |  :neutral_face: |
+| 04/05/2020    |   :smiley:          |    :neutral_face:    |    :smiley:    |		:worried:        |  :neutral_face: |
 | 11/05/2020    |   :smiley:          |    :smiley:          |    :smiley:    |   :worried:        |   :smiley:      |
-| 18/05/2020    |   -                 |    :smiley:          | :neutral_face: |   :smiley:         |   :smiley:      |
+| 18/05/2020    |   -                 |    :smiley:          | :neutral_face: |   :worried:        |   :smiley:      |
 | 25/05/2020    |   :worried:         |    :neutral_face:    |   :worried:    |   :smiley:         |   :smiley:      |
 
 
