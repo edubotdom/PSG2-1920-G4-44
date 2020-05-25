@@ -35,7 +35,7 @@ In the retrospective meeting, the team has a discussion about those results.
 | Day           | Luis Miguel Bellido | Eduardo Miguel Botía | Marta Díaz     | Carlos Santos      | Javier Solís    |
 | ------------- | ------------------- | -------------------- | -------------  | ------------------ | --------------- |
 | 23/03/2020    |   :smiley:          |    :neutral_face:    |    :smiley:    |		    -            |  :neutral_face: |
-| 30/03/2020    |   :worried:         |    :fearful:         |    :smiley:    |   :worried:        |   :smiley:      |
+| 30/03/2020    |   :worried:         |    :fearful:         | :neutral_face: |   :worried:        |   :smiley:      |
 | 06/04/2020    |   :fearful:         |    :smiley:          | :neutral_face: |   :smiley:         |   :smiley:      |
 | 13/04/2020    |   -                 |    :smiley:          |   :worried:    |   :smiley:         |   :smiley:      |
 | 20/04/2020    |   :smiley:          |    :smiley:          |  :smiley:      |   :smiley:         |  :neutral_face: |
@@ -46,8 +46,8 @@ In the retrospective meeting, the team has a discussion about those results.
 | Day           | Luis Miguel Bellido | Eduardo Miguel Botía | Marta Díaz     | Carlos Santos      | Javier Solís    |
 | ------------- | ------------------- | -------------------- | -------------  | ------------------ | --------------- |
 | 04/05/2020    |   :neutral_face:    |    :neutral_face:    |    :smiley:    |		:worried:        |  :neutral_face: |
-| 11/05/2020    |   :fearful:         |    :smiley:          |    :smiley:    |   :worried:        |   :smiley:      |
+| 11/05/2020    |   :fearful:         |    :smiley:          |    :worried:   |   :worried:        |   :smiley:      |
 | 18/05/2020    |   :fearful:         |    :smiley:          | :neutral_face: |   :worried:        |   :smiley:      |
-| 25/05/2020    |   :smiley:          |    :neutral_face:    |   :worried:    |   :smiley:         |   :neutral_face:|
+| 25/05/2020    |   :smiley:          |    :neutral_face:    |  :smiley:      |   :smiley:         |   :neutral_face:|
 
 
