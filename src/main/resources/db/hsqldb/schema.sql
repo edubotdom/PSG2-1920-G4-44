@@ -5,7 +5,7 @@ DROP TABLE visits IF EXISTS;
 DROP TABLE pets IF EXISTS;
 DROP TABLE types IF EXISTS;
 DROP TABLE owners IF EXISTS;
-DROP TABLE bookrooms IF EXISTS;
+DROP TABLE bookroom IF EXISTS;
 DROP TABLE causes IF EXISTS;
 DROP TABLE donations IF EXISTS;
 
@@ -21,8 +21,8 @@ CREATE INDEX vets_last_name ON vets (last_name);
 
 CREATE TABLE bookroom (
   id         INTEGER IDENTITY PRIMARY KEY,
-  date_of_start DATE,
-  date_of_end DATE,
+  start DATE,
+  end DATE,
   idO INTEGER,
   idP INTEGER,
   pet_id INTEGER NOT NULL,

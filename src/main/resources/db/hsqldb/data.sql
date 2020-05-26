@@ -58,9 +58,4 @@ INSERT INTO causes(id,name,description,budged_target,organization,is_closed) VAL
 INSERT INTO donations(id,amount,date_of_donation,client,cause_id) VALUES (1,13.5,'2020-1-17','Owner 1',1);
 INSERT INTO donations(id,amount,date_of_donation,client,cause_id) VALUES (2,86.5,'2020-3-20','Owner 2',1);
 
-INSERT INTO bookroom(id,date_of_start,date_of_end,pet_id,owner_id) VALUES (1,'2020-04-25','2020-05-28',1,1);
-INSERT INTO bookroom(id,date_of_start,date_of_end,pet_id,owner_id) VALUES (2,'2020-05-01','2020-06-10',4,3);
-INSERT INTO bookroom(id,date_of_start,date_of_end,pet_id,owner_id) VALUES (3,'2020-05-05','2020-05-20',1,1);
-INSERT INTO bookroom(id,date_of_start,date_of_end,pet_id,owner_id) VALUES (4,'2020-05-12','2020-05-22',1,1);
-
 

@@ -1,4 +1,4 @@
-# Niko Niko Calendar of team X
+# Niko Niko Calendar of team G4-44
 ## Introduction
 Some interesting links about what a Niko Niko calendar is and opinions about its use in software development:
 
@@ -30,13 +30,24 @@ In the retrospective meeting, the team has a discussion about those results.
 | Day 5         |    :fearful:   (I´m desperate, I need help)        |
 
 
-## Sprint Template
+### Sprint L3: L3-Measurement
 
 | Day           | Luis Miguel Bellido | Eduardo Miguel Botía | Marta Díaz     | Carlos Santos      | Javier Solís    |
 | ------------- | ------------------- | -------------------- | -------------  | ------------------ | --------------- |
-| Day 1         |                     |    :neutral_face:    |                |		    -          |                 |
-| Day 2         |                     |    :fearful:         |                |   :worried:        |                 |
-| Day 3         |                     |    :smiley:          |                |   :smiley:         |                 |
-| Day 4         |                     |                      |                |                    |                 |
-| Day 5         |                     |                      |                |                    |                 |
+| 23/03/2020    |   :smiley:          |    :neutral_face:    |    :smiley:    |		    -            |  :neutral_face: |
+| 30/03/2020    |   :worried:         |    :fearful:         | :neutral_face: |   :worried:        |   :smiley:      |
+| 06/04/2020    |   :fearful:         |    :smiley:          | :neutral_face: |   :smiley:         |   :smiley:      |
+| 13/04/2020    |   -                 |    :smiley:          |   :worried:    |   :smiley:         |   :smiley:      |
+| 20/04/2020    |   :smiley:          |    :smiley:          |  :smiley:      |   :smiley:         |  :neutral_face: |
+
+
+### Sprint L4: L4-ITIL
+
+| Day           | Luis Miguel Bellido | Eduardo Miguel Botía | Marta Díaz     | Carlos Santos      | Javier Solís    |
+| ------------- | ------------------- | -------------------- | -------------  | ------------------ | --------------- |
+| 04/05/2020    |   :neutral_face:    |    :neutral_face:    |    :smiley:    |		:worried:        |  :neutral_face: |
+| 11/05/2020    |   :fearful:         |    :smiley:          |    :worried:   |   :worried:        |   :smiley:      |
+| 18/05/2020    |   :fearful:         |    :smiley:          | :neutral_face: |   :worried:        |   :smiley:      |
+| 25/05/2020    |   :smiley:          |    :neutral_face:    |  :smiley:      |   :smiley:         |   :neutral_face:|
+
 
